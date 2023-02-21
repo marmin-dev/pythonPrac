@@ -16,13 +16,13 @@ base_url = 'https://books.toscrape.com/catalogue/page-{}.html'
 # example.select('a')[1][title]
 # two_start_titles = []
 two_start_titles = []
-for n in range(1,51):
+for n in range(1, 51):
     scrape_url = base_url.format(n)
     res = requests.get(scrape_url)
     soup = bs4.BeautifulSoup(res.text,'lxml')
     books = soup.select(".product_pod")
     for book in books:
-        # if 'star-raitng.Two' in str(book):
+        # if 'star-rating.Two' in str(book):
 
         if len(book.select('.start-rating.Two')) !=0:
             book_title = book.select('a')[1]['title']
