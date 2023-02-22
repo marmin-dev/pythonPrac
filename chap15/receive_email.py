@@ -6,6 +6,7 @@ password = getpass.getpass("Password : ")
 M.login(email,password)
 print(M.list())
 print(M.select('inbox'))
+# 찾을 제목
 typ, data = M.search(None,'SUBJECT "green zebra"')
 print(typ)
 email_id = data[0]
