@@ -53,9 +53,23 @@ def new_decorator(original_func):
     return wrap_func()
 def func_needs_decorator():
     print("I want to be decorated")
+
 func_needs_decorator()
 new_decorator(func_needs_decorator)
 
 @new_decorator
 def func_needs_decorator():
     print("I want to be decorated")
+
+print("-----------")
+def summm(original_func):
+    def wrap_func():
+        print("some one gave me")
+        original_func()
+        print("these func")
+    return wrap_func()
+@summm
+def insert_func():
+    print("somebody_helpme")
+
+insert_func()
