@@ -62,14 +62,27 @@ def func_needs_decorator():
     print("I want to be decorated")
 
 print("-----------")
-def summm(original_func):
-    def wrap_func():
-        print("some one gave me")
-        original_func()
-        print("these func")
-    return wrap_func()
-@summm
-def insert_func():
-    print("somebody_helpme")
+# def summm(original_func):
+#     def wrap_func():
+#         print("some one gave me")
+#         original_func()
+#         print("these func")
+#     return wrap_func()
+# @summm
+# def insert_func():
+#     print("somebody_helpme")
 
-insert_func()
+
+def my_decorator1(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator1
+def say_hello():
+    print("Hello!")
+
+say_hello()
+
